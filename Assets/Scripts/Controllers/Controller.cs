@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Controller : MonoBehaviour {
+public class Controller : MonoBehaviour
+{
 
 	// Use this for initialization
 	protected virtual void Start () {
