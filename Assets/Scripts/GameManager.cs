@@ -4,10 +4,17 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    // Static instance
     public static GameManager instance;
 
-    public Vector3 lastCheckpoint; // Just store the position of the last checkpoint...
+    // Hold all the string functions
+    public SceneSwitcher sceneScript;
 
+    // Variables to reset on load
+    public Vector3 lastCheckpoint;
+    public int score;
+
+    // References to Actors
     public Controller_Player player;
 
     private void Awake()
@@ -21,11 +28,11 @@ public class GameManager : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
+        sceneScript = GetComponent<SceneSwitcher>();
     }
-	
-	// Update is called once per frame
-	void Update ()
+
+    private void Start()
     {
-		
-	}
+       // sceneScript.LoadMainMenu();
+    }
 }
