@@ -5,6 +5,9 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
+
+    public Vector3 lastCheckpoint; // Just store the position of the last checkpoint...
+
     public Controller_Player player;
 
     private void Awake()

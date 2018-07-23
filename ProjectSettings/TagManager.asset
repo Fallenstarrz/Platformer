@@ -13,8 +13,8 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
+  - WorldObject
+  - Checkpoint
   - 
   - 
   - 
@@ -40,4 +40,10 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: WorldObject
+    uniqueID: 3204746855
+    locked: 0
+  - name: Checkpoint
+    uniqueID: 2430315629
     locked: 0
