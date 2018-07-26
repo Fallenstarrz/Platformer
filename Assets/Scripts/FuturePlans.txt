@@ -1,38 +1,22 @@
-﻿Add some sprinting functionality
-Add enemies
-Add sounds
-Build 2-3 more levels
-Add player death
-Add enemy death
-Add player health
-Add player health GUI
-Add score for player
-Score goes up when we gather milk
-Add checkpoints at the start of each level?? MAYBE
-Add music
-Add in game menu
-Add start/title screen
-Add victory screen
-Add fail screen
-
-ASSIGNMENT REQUIREMENTS:
+﻿ASSIGNMENT REQUIREMENTS:
 FROM RUBERIC:
 	(DONE) Player Moves left/right/jump
 	(DONE) Player Affected by gravity
 	(DONE) Detects " isGrounded"
 	(DONE) Double jump (tripple or more is okay too, designer specified)
 	(DONE) Animation Blending - Idle, Walk, Jump/Fall
+	(DONE) Audio Source in Scene (music)
 
+	Player Lives for respawning
+		Handled by GameManager on destroy, but before destroy play death anim
 	AudioSource.PlayClipAtPoint() used a.k.a SFX 
-		Planning on using for enemy death, or enemy shooting, or something like that
+		Planning on using for pickups
 	Game has at least 3 levels (scenes)
-		Planning on making roughly 6-9 levels for fun if time permits
-	Audio Source in Scene (music)
-		Planning on using 1 sound for "top" levels and 1 additional sound for bottom route
+		Planning on making 3 main levels, and 3 menus
 	Game has start menu/victory/loss scenes
 		No real plans, I don't really like this requirement
 	Player has Checkpoints
-		Just need to make a trigger to save all player & level stats here... Google it aye
+		Just need to make a trigger to save all player & level stats here...
 	bug/error free
 	Comments
 	Project organized

@@ -20,10 +20,7 @@ public class Controller_Player : Controller
 
     // Movement Variables
     public float moveSpeed;
-    // Add some form of sprint using left shift.
     public float jumpForce;
-    public float dashDistance;
-    public bool isDashing;
     public bool isInAir;
     public int jumpCountCurrent = 1;
     public int jumpCountMax;

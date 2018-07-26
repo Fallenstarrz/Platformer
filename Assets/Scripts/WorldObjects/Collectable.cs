@@ -2,15 +2,21 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Collectable : MonoBehaviour {
+public class Collectable : MonoBehaviour
+{
+    public int scoreToAdd;
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject == GameManager.instance.player.gameObject)
+        {
+            GameManager.instance.score += scoreToAdd;
+            // Play sound at point
+            // Destroy GameObject
+            // Add GUI popup that stays for 1s that displays the score
+            Destroy(this.gameObject);
+
+        }
+    }
+    // Make GUI pop up in world space at the location of the pickup
 }
