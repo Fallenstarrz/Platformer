@@ -10,12 +10,14 @@ public class CameraFollow : MonoBehaviour
     // Use this for initialization
     void Start ()
     {
+        player = GameManager.instance.player.gameObject.transform;
         offset = transform.position - player.position;
 	}
 
     // Called after each frame, but before next one begins
     void LateUpdate ()
     {
+        // Set character if there isn't one
         if (player == null)
         {
             if (GameManager.instance.player != null)
@@ -23,6 +25,7 @@ public class CameraFollow : MonoBehaviour
                 player = GameManager.instance.player.gameObject.transform;
             }
         }
+        // Make camera follow player
         if (player != null)
         {
             transform.position = player.position + offset;

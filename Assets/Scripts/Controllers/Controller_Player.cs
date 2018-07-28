@@ -125,12 +125,6 @@ public class Controller_Player : Controller
                 anim.Play("PlayerFall");
             }
         }
-
-        // Planned Features!
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            // Open in game menu
-        }
     }
     // player death
     public void playerDead()

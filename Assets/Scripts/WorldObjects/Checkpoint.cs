@@ -10,7 +10,7 @@ public class Checkpoint : MonoBehaviour
     {
         anim = GetComponent<Animator>();
     }
-
+    // Set checkpoint animation to innactive
     private void Update()
     {
         if (GameManager.instance.lastCheckpoint != this.gameObject.transform.position)
@@ -18,7 +18,7 @@ public class Checkpoint : MonoBehaviour
             anim.Play("CheckpointInnactive");
         }
     }
-
+    // Set checkpoint animation to active && set the checkpoint to this position
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag ("Player"))

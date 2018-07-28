@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class SceneSwitcher : MonoBehaviour
 {
+    // Load scenes, integers are decided in the build settings
     public void LoadMainMenu()
     {
         SceneManager.LoadScene(0);
@@ -32,5 +33,10 @@ public class SceneSwitcher : MonoBehaviour
     public void LoadCredits()
     {
         SceneManager.LoadScene(6);
+    }
+    public void LoadExitGame()
+    {
+        Debug.Log("I quit this game!");
+        Application.Quit();
     }
 }
