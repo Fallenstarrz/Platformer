@@ -12,10 +12,17 @@ public class CameraFollow : MonoBehaviour
     {
         offset = transform.position - player.position;
 	}
-	
-	// Update is called once per frame
-	void LateUpdate ()
+
+    // Called after each frame, but before next one begins
+    void LateUpdate ()
     {
+        if (player == null)
+        {
+            if (GameManager.instance.player != null)
+            {
+                player = GameManager.instance.player.gameObject.transform;
+            }
+        }
         if (player != null)
         {
             transform.position = player.position + offset;

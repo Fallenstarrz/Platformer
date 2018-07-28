@@ -6,17 +6,17 @@ FROM RUBERIC:
 	(DONE) Double jump (tripple or more is okay too, designer specified)
 	(DONE) Animation Blending - Idle, Walk, Jump/Fall
 	(DONE) Audio Source in Scene (music)
+	(DONE) AudioSource.PlayClipAtPoint() used a.k.a SFX 
 
 	Player Lives for respawning
 		Handled by GameManager on destroy, but before destroy play death anim
-	AudioSource.PlayClipAtPoint() used a.k.a SFX 
-		Planning on using for pickups
 	Game has at least 3 levels (scenes)
 		Planning on making 3 main levels, and 3 menus
 	Game has start menu/victory/loss scenes
 		No real plans, I don't really like this requirement
 	Player has Checkpoints
 		Just need to make a trigger to save all player & level stats here...
+		Most importantly I need to kill the player to make sure everything works!
 	bug/error free
 	Comments
 	Project organized

@@ -13,9 +13,7 @@ public class Controller_Player : Controller
     public Animator anim;
 
     //Sounds
-    public AudioClip dashSound;
     public AudioClip JumpSound;
-    public AudioClip PickUpSound;
     public float soundVolume;
 
     // Movement Variables
@@ -26,11 +24,12 @@ public class Controller_Player : Controller
     public int jumpCountMax;
     public float distanceToFeet;
     public bool isMoving;
+    public bool isDead;
 
     RaycastHit2D ground;
 
     // Use this for initialization
-    protected override void Start ()
+    protected override void Start()
     {
         tf = GetComponent<Transform>();
         sprite = GetComponent<SpriteRenderer>();
@@ -38,18 +37,20 @@ public class Controller_Player : Controller
         hitBox = GetComponent<PolygonCollider2D>();
         soundMaker = GetComponent<AudioSource>();
         anim = GetComponent<Animator>();
-	}
-	
-	// Update is called once per frame
-	protected override void Update ()
+
+        GameManager.instance.player = this;
+    }
+
+    // Update is called once per frame
+    protected override void Update()
     {
         inputHandler();
-	}
+    }
 
     void inputHandler()
     {
         // Idle
-        if (!isInAir && !isMoving)
+        if (!isInAir && !isMoving && !isDead)
         {
             anim.Play("Idle");
         }
@@ -61,22 +62,28 @@ public class Controller_Player : Controller
         }
         if (Input.GetKey(KeyCode.A))
         {
-            isMoving = true;
-            tf.Translate(-moveSpeed * Time.deltaTime, 0, 0);
-            sprite.flipX = true;
-            if (!isInAir)
+            if (!isDead)
             {
-                anim.Play("PlayerRun");
+                isMoving = true;
+                tf.Translate(-moveSpeed * Time.deltaTime, 0, 0);
+                sprite.flipX = true;
+                if (!isInAir)
+                {
+                    anim.Play("PlayerRun");
+                }
             }
         }
         if (Input.GetKey(KeyCode.D))
         {
-            isMoving = true;
-            tf.Translate(moveSpeed * Time.deltaTime, 0, 0);
-            sprite.flipX = false;
-            if (!isInAir)
+            if (!isDead)
             {
-                anim.Play("PlayerRun");
+                isMoving = true;
+                tf.Translate(moveSpeed * Time.deltaTime, 0, 0);
+                sprite.flipX = false;
+                if (!isInAir)
+                {
+                    anim.Play("PlayerRun");
+                }
             }
         }
 
@@ -87,9 +94,12 @@ public class Controller_Player : Controller
         {
             if (jumpCountCurrent < jumpCountMax)
             {
-                jumpCountCurrent++;
-                rb.AddForce(Vector3.up * jumpForce);
-                soundMaker.PlayOneShot(JumpSound, soundVolume);
+                if (!isDead)
+                {
+                    jumpCountCurrent++;
+                    rb.AddForce(Vector3.up * jumpForce);
+                    soundMaker.PlayOneShot(JumpSound, soundVolume);
+                }
             }
         }
         if (ground.collider != null)
@@ -103,11 +113,17 @@ public class Controller_Player : Controller
         }
         if (rb.velocity.y > 0)
         {
-            anim.Play("PlayerJump");
+            if (!isDead)
+            {
+                anim.Play("PlayerJump");
+            }
         }
         else if (rb.velocity.y < 0)
         {
-            anim.Play("PlayerFall");
+            if (!isDead)
+            {
+                anim.Play("PlayerFall");
+            }
         }
 
         // Planned Features!
@@ -115,21 +131,12 @@ public class Controller_Player : Controller
         {
             // Open in game menu
         }
-        if (Input.GetKey(KeyCode.LeftShift))
-        {
-            // Dash
-        }
-        if (Input.GetKey(KeyCode.F))
-        {
-            // Interact
-        }
-        if (Input.GetKey(KeyCode.W))
-        {
-            // Climb
-        }
-        if (Input.GetKey(KeyCode.S))
-        {
-            // Crouch or climb down
-        }
+    }
+    // player death
+    public void playerDead()
+    {
+        isDead = true;
+        anim.Play("PlayerDead");
+        Destroy(this.gameObject, 2);
     }
 }
