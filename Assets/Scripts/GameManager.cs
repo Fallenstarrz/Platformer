@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour
     public Vector3 lastCheckpoint;
     public int score;
     public int playerLives;
+    public int maxLives;
 
     // References to Actors
     public Controller_Player player;
@@ -54,17 +55,24 @@ public class GameManager : MonoBehaviour
                 // Respawn player if we have lives remaining
                 if (playerLives > 0)
                 {
-                    playerRespawn();
+                    if (currentScene != 4)
+                    {
+                        playerRespawn();
+                    }
                 }
                 else
                 {
                     // if our scene isnt the loss screen then load loss scene when we run out of lives
-                    if (currentScene != 5)
+                    if (currentScene != 5 && currentScene != 6)
                     {
                         sceneScript.LoadLoss();
                     }
                 }
             }
+        }
+        else
+        {
+            resetGame();
         }
     }
     // Respawn player and reduce playerLives by 1
@@ -72,5 +80,11 @@ public class GameManager : MonoBehaviour
     {
         playerLives -= 1;
         Instantiate(playerPrefab, lastCheckpoint, Quaternion.Euler (0,0,0));
+    }
+    // Reset score to 0 and lives to maxLives
+    void resetGame()
+    {
+        score = 0;
+        playerLives = maxLives;
     }
 }

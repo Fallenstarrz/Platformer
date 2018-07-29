@@ -14,7 +14,7 @@ public class Collectable : MonoBehaviour
         {
             GameManager.instance.score += scoreToAdd;
             AudioSource.PlayClipAtPoint(pickUp, transform.position, 2);
-            // Add GUI popup that stays for 1s that displays the score
+            // TODO: Add GUI popup that stays for 1s that displays the score
             Destroy(this.gameObject);
         }
     }
