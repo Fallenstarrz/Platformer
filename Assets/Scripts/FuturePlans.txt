@@ -7,16 +7,11 @@ FROM RUBERIC:
 	(DONE) Animation Blending - Idle, Walk, Jump/Fall
 	(DONE) Audio Source in Scene (music)
 	(DONE) AudioSource.PlayClipAtPoint() used a.k.a SFX 
+	(DONE) Player Lives for respawning
+	(DONE) Game has at least 3 levels (scenes)
+	(DONE) Game has start menu/victory/loss scenes
+	(DONE) Player has Checkpoints
 
-	Player Lives for respawning
-		Handled by GameManager on destroy, but before destroy play death anim
-	Game has at least 3 levels (scenes)
-		Planning on making 3 main levels, and 3 menus
-	Game has start menu/victory/loss scenes
-		No real plans, I don't really like this requirement
-	Player has Checkpoints
-		Just need to make a trigger to save all player & level stats here...
-		Most importantly I need to kill the player to make sure everything works!
 	bug/error free
 	Comments
 	Project organized

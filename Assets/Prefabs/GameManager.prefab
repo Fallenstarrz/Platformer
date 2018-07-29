@@ -57,7 +57,7 @@ MonoBehaviour:
   lastCheckpoint: {x: -30.9, y: 27.1, z: 0}
   score: 0
   playerLives: 0
-  maxLives: 2
+  maxLives: 3
   player: {fileID: 0}
   playerPrefab: {fileID: 1592453397410968, guid: 1d905852726eaa34982bbdf442cd53c4,
     type: 2}

@@ -6,6 +6,7 @@ public class Collectable : MonoBehaviour
 {
     public int scoreToAdd;
     public AudioClip pickUp;
+    public GameObject popupText;
 
     // when player enters trigger add points to gameManager and play sound
     private void OnTriggerEnter2D(Collider2D collision)
@@ -14,7 +15,7 @@ public class Collectable : MonoBehaviour
         {
             GameManager.instance.score += scoreToAdd;
             AudioSource.PlayClipAtPoint(pickUp, transform.position, 2);
-            // TODO: Add GUI popup that stays for 1s that displays the score
+            Instantiate(popupText, transform.position, transform.rotation);
             Destroy(this.gameObject);
         }
     }

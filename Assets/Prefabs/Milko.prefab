@@ -161,6 +161,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scoreToAdd: 100
   pickUp: {fileID: 8300000, guid: a99056b92f1a14641b257bdea97745dd, type: 3}
+  popupText: {fileID: 1591820132949944, guid: 56b530db6b401de4086489a6904550f9, type: 2}
 --- !u!212 &212676667579981660
 SpriteRenderer:
   m_ObjectHideFlags: 1
